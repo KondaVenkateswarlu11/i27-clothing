@@ -1,17 +1,17 @@
 # Use an official Node.js runtime as a parent image
 FROM node:16
 
-# Create a Directory in the container
-RUN mkdir /opt/i27
-
 # Set the working directory in the container to /opt
-WORKDIR /opt/i27
+WORKDIR /opt
+
+#Copy Package.json to /opt
+COPY package.json ./
 
 # Install the Dependencies
 RUN npm install
 
 # Copy everything to /opt
-COPY . /opt/i27
+COPY . /opt
 
 #Expose the specified network ports at runtime.
 EXPOSE 3000
