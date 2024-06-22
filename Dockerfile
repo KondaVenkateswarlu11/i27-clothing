@@ -2,13 +2,16 @@
 FROM node:16
 
 # Create a Directory in the container
-RUN mkdir /opt
+RUN mkdir /opt/i27
 
 # Set the working directory in the container to /opt
-WORKDIR /opt
+WORKDIR /opt/i27
+
+# Install the Dependencies
+RUN npm install
 
 # Copy everything to /opt
-COPY . /opt
+COPY . /opt/i27
 
 #Expose the specified network ports at runtime.
 EXPOSE 3000
